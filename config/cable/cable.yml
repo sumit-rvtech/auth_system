@@ -1,0 +1,4 @@
+local: &local
+  url: redis://localhost:6379
+
+development: *local

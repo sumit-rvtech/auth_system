@@ -1,0 +1,9 @@
+<tr>
+	<div class="event">
+		<td><%= event.created_at.getlocal.to_formatted_s(:short) %></td>
+		<td><%= event.sender.email %></td>
+		<td><%= event.receiver.email %></td>
+		<td><%= event.subject %></td>
+		<td><%= event.message %></td>
+	</div>
+</tr>
