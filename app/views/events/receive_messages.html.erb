@@ -11,7 +11,6 @@
 			<th>Message</th>
 		</tr>
 		<% @events.each do |event|%>
-			<%#debugger%>
 			<tr class="#{event.read? ? 'read' : 'unread'}" data-link="<%= event_path(event) %>">
 				<td><%= event.created_at.getlocal.to_formatted_s(:short) %></td>
 				<td><%= event.sender.email %></td>

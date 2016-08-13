@@ -38,7 +38,6 @@ class EventsController < ApplicationController
   end
 
   def reply_message
-  	debugger
   end
 
   private
