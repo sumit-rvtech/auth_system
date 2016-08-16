@@ -1,0 +1,24 @@
+<% page_header "Conversation" %>
+  <p>Chatting with
+  <%= render 'conversations/participants',conversation: @conversation, current_user: current_user %>
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= @conversation.subject %></div>
+
+    <div class="panel-body">
+      <div class="messages">
+        <% @conversation.receipts_for(current_user).reverse.each do |receipt| %>
+          <%#debugger%>
+          <%= render 'conversations/convers', receipt: receipt %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= form_tag reply_conversation_path(@conversation), method: :post, id: "reply_conversations" do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+<% end %>

@@ -35,7 +35,12 @@ gem 'redis', '~> 3.0'
 gem 'devise'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'bootstrap', '~> 4.0.0.alpha3'
-
+gem 'gravatar_image_tag'
+gem 'chosen-rails'
+gem 'mailboxer'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

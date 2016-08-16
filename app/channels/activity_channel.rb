@@ -7,8 +7,4 @@ class ActivityChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-
-  def send_message(data)
-    current_user.events.create!(message: data['message'], chat_room_id: data['chat_room_id'])
-  end
 end

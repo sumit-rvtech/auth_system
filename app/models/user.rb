@@ -4,13 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :events, dependent: :destroy
-         has_many :comments, dependent: :destroy
+         #has_many :events, dependent: :destroy
+         #has_many :comments, dependent: :destroy
 
          scope :all_except, ->(user) { where.not(id: user) }
+         acts_as_messageable
 
-    def send_message(rec, sub, mess)
-    	@user = User.find(rec)
-    	@event = @user.events.create(message: mess,subject: sub, sender_id: self.id, receiver_id: rec,read: false)
+    def name
+      email.split('@')[0]
+    end
+
+    def mailboxer_email(object)
+      email
     end
 end

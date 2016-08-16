@@ -15,6 +15,18 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :messages
+
+  resources :conversations do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount ActionCable.server => '/cable'
