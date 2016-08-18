@@ -15,7 +15,12 @@ module ApplicationHelper
     	s.html_safe
   	end
 
-	def send_cable message
+	def send_cable message,conv
 		EventBroadcastJob.perform_now(message,current_user)
+		MessageBroadcastJob.perform_now(conv,current_user)
+	end
+
+	def check_unread
+		current_user.mailbox.inbox({:read => false}).present? ? current_user.mailbox.inbox({:read => false}).count : '0'
 	end
 end

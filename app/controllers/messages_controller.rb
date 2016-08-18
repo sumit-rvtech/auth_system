@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 		conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
 		@message = conversation.messages.find_by(body: params[:message][:body])
 		flash[:success] = "Message has been sent!"
-		send_cable(@message)
+		send_cable(@message,conversation)
 		redirect_to conversation_path(conversation)
 	end
 

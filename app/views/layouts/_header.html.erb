@@ -4,8 +4,8 @@
     <li class="nav-item">
       <a class="nav-link" href="#">About</a>
     </li>
-  <!-- </ul>
-  <ul class="nav navbar-nav"> -->
+  </ul>
+  <ul class="nav navbar-nav pull-xs-right">
     <% if user_signed_in? %>
       <li class="nav-item">
         <span class ='nav-link'>
@@ -15,17 +15,17 @@
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %>
       </li>
       <li class="nav-item">
-       <%= link_to 'Conversations', conversations_path, :class => 'nav-link' %>
+        <%= link_to "Conversations (#{check_unread} Total)", conversations_path, :class => 'nav-link' %>
       </li>
       <li class="nav-item">
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
       </li>
     <% else %>
       <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'%>
+        <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
       </li>
       <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'%>
       </li>
   <% end %>
   </ul>

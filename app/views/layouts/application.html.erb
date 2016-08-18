@@ -13,8 +13,10 @@
   	<% flash.each do |name, msg| %>
   		<%= content_tag(:div, msg, class: "alert alert-info") %>
   	<% end %>
-    <div class="container">
+    <div class="jumbotron">
+      <div class="container">
         <%= yield %>
+      </div>
     </div>
     <style type="text/css">
       .read, .unread {

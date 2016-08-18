@@ -30,7 +30,7 @@ class ConversationsController < ApplicationController
     current_user.reply_to_conversation(@conversation, params[:body])
     flash[:success] = 'Reply sent'
     @message = @conversation.messages.find_by(body: params[:body])
-    send_cable(@message)
+    send_cable(@message,@conversation)
     redirect_to conversation_path(@conversation)
   end
 

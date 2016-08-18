@@ -8,8 +8,7 @@
 
     <div class="panel-body">
       <div class="messages">
-        <% @conversation.receipts_for(current_user).reverse.each do |receipt| %>
-          <%#debugger%>
+        <% @conversation.receipts_for(current_user).each do |receipt| %>
           <%= render 'conversations/convers', receipt: receipt %>
         <% end %>
       </div>
